@@ -1,8 +1,8 @@
 public class PaymentInfo {
-    private double volume;      // Овор хэмжээ (жишээ нь, м3)
-    private double distance;    // Зай (жишээ нь, км)
-    private String mode;        // Горим: "Хурдан", "Тайван"
-    private double cost;        // Төлбөр
+    private double volume;      
+    private double distance;   
+    private String mode;        
+    private double cost;     
 
     public PaymentInfo(double volume, double distance, String mode) {
         this.volume = volume;

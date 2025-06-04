@@ -18,3 +18,4 @@ public class DeliveryStatus {
         return "Төлөв: " + status;
     }
 }
+//
