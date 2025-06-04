@@ -1,13 +1,38 @@
-
 public class ProductInfo {
+    private String name;
+    private double volume;
+    private String note;
 
-    public ProductInfo(String string, double d, String string2) {
-        // TODO Auto-generated constructor stub
+    // Constructor
+    public ProductInfo(String name, double volume, String note) {
+        this.name = name;
+        this.volume = volume;
+        this.note = note;
     }
 
-    public Object getVolume() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getVolume'");
+    // Getter methods
+    public String getName() {
+        return name;
     }
 
+    public double getVolume() {
+        return volume;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    // Setter methods (хэрэв шаардлагатай бол)
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 }
