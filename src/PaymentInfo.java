@@ -24,4 +24,9 @@ public class PaymentInfo {
     public String toString() {
         return "Төлбөр: " + cost + "₮ (Горим: " + mode + ")";
     }
+
+    public String getCalculatedAmount() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCalculatedAmount'");
+    }
 }

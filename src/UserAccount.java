@@ -11,6 +11,10 @@ public class UserAccount {
         this.address = address;
     }
 
+    public UserAccount(String string, String string2, AddressInfo addressInfo) {
+        //TODO Auto-generated constructor stub
+    }
+
     // Getters
     public String getFirstName() {
         return firstName;

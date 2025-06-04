@@ -5,9 +5,8 @@ public class DeliveryOrder {
     private DeliveryStatus status;
     private PaymentInfo payment;
 
-    public DeliveryOrder(UserAccount user, CourierAccount courier, ProductInfo product,
-                         DeliveryStatus status, PaymentInfo payment) {
-        this.user = user;
+    public DeliveryOrder(UserAccount user, CourierAccount courier, ProductInfo product,DeliveryStatus status, PaymentInfo payment) {
+        this.user = user;  
         this.courier = courier;
         this.product = product;
         this.status = status;
@@ -16,11 +15,11 @@ public class DeliveryOrder {
 
     public void printSummary() {
         System.out.println("----- Hurgeltiin zahialgiin delgerengui -----");
-        System.out.println("Zahialagch: " + user.getName() + ", Utas: " + user.getPhone());
-        System.out.println("Pickup hayg: " + user.getAddress().getFullAddress());
+        System.out.println("Zahialagch: " + user.getFirstName() + ", Utas: " + user.getPhoneNumber());
+        System.out.println("Pickup hayg: " + user.getAddress());
 
-        System.out.println("Hurgegch: " + courier.getName() + ", Phone" + courier.getPhone()
-                + ", Gorim " + courier.getMode());
+        System.out.println("Hurgegch: " + courier.getName() + ", Phone: " + courier.getPhoneNumber()
+                + ", Gorim: " + courier.getDeliveryMode());
 
         System.out.println("Baraa: " + product.getName() + ", Hemjee: " + product.getVolume() +
                 ", Warning: " + product.getNote());
@@ -29,6 +28,4 @@ public class DeliveryOrder {
         System.out.println("Tolbor: " + payment.getCalculatedAmount() + "MNT");
         System.out.println("--------------------------------------------");
     }
-
-    // Getter/setter хэрэгтэй бол эндээс эхэлж нэмж болно.
 }

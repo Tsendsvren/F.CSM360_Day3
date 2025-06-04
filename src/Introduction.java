@@ -2,20 +2,20 @@ public class Introduction {
     public static void main(String[] args) {
 
         // Хэрэглэгч бүртгэх
-        UserAccount user = new UserAccount("Бат", "99112233",
-                new AddressInfo("Бат", "99112233", "3-р орц", "12 тоот"));
+        UserAccount user = new UserAccount("Bat", "99112233",
+                new AddressInfo("Bat", "99112233", "3-r orts", "12 toot"));
 
         // Хүргэгч бүртгэх
-        CourierAccount courier = new CourierAccount("Дорж", "88119900", "Хурдан");
+        CourierAccount courier = new CourierAccount("Dorj", "88119900", "Hurdan");
 
         // Хүргэх барааны мэдээлэл
-        ProductInfo product = new ProductInfo("Угаалгын машин", 80.0, "Шилэн хэсгийг болгоомжтой");
+        ProductInfo product = new ProductInfo("Ugaalgiin mashin", 80.0, "Shilen hesgiig bolgoomjtoi");
 
         // Хүргэлтийн төлөв эхлүүлэх
-        DeliveryStatus status = new DeliveryStatus("Хүлээн авсан");
+        DeliveryStatus status = new DeliveryStatus("Huleen avsan");
 
         // Төлбөр тооцоолох
-        PaymentInfo payment = new PaymentInfo(product.getVolume(), 12.5, "Хурдан");
+        PaymentInfo payment = new PaymentInfo(product.getVolume(), 12.5, "Hurdan");
 
         // Захиалга үүсгэх
         DeliveryOrder order = new DeliveryOrder(user, courier, product, status, payment);
