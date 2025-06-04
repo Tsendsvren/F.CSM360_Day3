@@ -1,7 +1,7 @@
 public class CourierAccount {
-    private String name;
-    private String phoneNumber;
-    private String deliveryMode; 
+    private String name;           // Хүргэгчийн нэр
+    private String phoneNumber;    // Утасны дугаар
+    private String deliveryMode;   // Хүргэлтийн горим (мотоцикл, машин гэх мэт)
 
     public CourierAccount(String name, String phoneNumber, String deliveryMode) {
         this.name = name;
@@ -9,7 +9,7 @@ public class CourierAccount {
         this.deliveryMode = deliveryMode;
     }
 
- 
+    // Getters
     public String getName() {
         return name;
     }
@@ -37,6 +37,9 @@ public class CourierAccount {
 
     @Override
     public String toString() {
-        return "CourierAccount{name='" + name + "', phone='" + phoneNumber + "', mode='" + deliveryMode + "'}";
+        return "CourierAccount{" +
+                "name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", deliveryMode='" + deliveryMode + '\'' +
+                '}';
     }
-}

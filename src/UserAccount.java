@@ -11,8 +11,13 @@ public class UserAccount {
         this.address = address;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
+    // Getters
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String getPhoneNumber() {
@@ -23,9 +28,26 @@ public class UserAccount {
         return address;
     }
 
-    public void displayInfo() {
-        System.out.println("Нэр: " + getFullName());
-        System.out.println("Утас: " + phoneNumber);
-        System.out.println("Хаяг: " + address);
+    // Setters
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "User: " + firstName + " " + lastName +
+               ", Phone: " + phoneNumber + ", Address: " + address;
     }
 }
