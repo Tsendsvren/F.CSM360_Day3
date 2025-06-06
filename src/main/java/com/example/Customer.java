@@ -6,9 +6,13 @@ public class Customer {
     private String email;
 
     public Customer(String fullName, String phone, String email) {
-        this.fullName = fullName;
-        this.phone = phone;
-        this.email = email;
+    this.fullName = fullName;
+    this.phone = phone;
+    this.email = email;
+
+
+    this.fullName=fullName;this.phone=phone;this.email=email;
+
     }
 
     public String getFullName() {

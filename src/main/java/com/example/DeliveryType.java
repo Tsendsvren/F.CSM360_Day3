@@ -17,12 +17,8 @@ public enum DeliveryType {
     @Override
     public String toString() {
         switch (this) {
-            case STANDARD:
-                return "Стандарт";
-            case EXPRESS:
-                return "Хурдан";
-            default:
-                return "";
+            case EXPRESS: return "Хурдан";
+            default: return "Стандарт";
         }
     }
 }

@@ -37,19 +37,12 @@ public enum VehicleType {
 
     @Override
     public String toString() {
-        switch (this) {
-            case MOTORCYCLE:
-                return "Мотоцикль";
-            case BICYCLE:
-                return "Унадаг дугуй";
-            case CAR:
-                return "Машин";
-            case SMALL_TRUCK:
-                return "Ачааны жижиг машин";
-            case MOVING_TRUCK:
-                return "Нүүлгэлтийн машин";
-            default:
-                return "";
+         switch (this) {
+            case MOTORCYCLE: return "Мотоцикль";
+            case BICYCLE: return "Унадаг дугуй";
+            case SMALL_TRUCK: return "Ачааны жижиг машин";
+            case MOVING_TRUCK: return "Нүүлгэлтийн машин";
+            default: return "Машин";
         }
     }
 }
