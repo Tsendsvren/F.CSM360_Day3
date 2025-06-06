@@ -55,12 +55,8 @@ public class Payment {
         System.out.println("Хүргүүлэгч: " + location.getSenderName());
         System.out.println("Хүлээн авагч: " + location.getReceiverName());
         System.out.println("Бараа: " + item.getName());
-        if (costVolume > 0) {
-            System.out.println("Барааны хэмжээ: " + volume + " м3 × " + PRICE_PER_M3 + "₮ = " + costVolume + "₮");
-        }
-        if (costWeight > 0) {
-            System.out.println("Барааны жин: " + weight + " кг × " + PRICE_PER_KG + "₮ = " + costWeight + "₮");
-        }
+        System.out.println("Барааны хэмжээ: " + volume + " м3 × " + PRICE_PER_M3 + "₮ = " + costVolume + "₮");
+        System.out.println("Барааны жин: " + weight + " кг × " + PRICE_PER_KG + "₮ = " + costWeight + "₮");
         System.out.println("Хүргэлтийн зай: " + distance + " км × " + PRICE_PER_KM + "₮ = " + costDistance + "₮");
         System.out.println("Хүргэлтийн төрөл: " + deliveryType.toString() + " = " + costDeliveryType + "₮");
         System.out.println("Тээврийн хэрэгсэл: " + vehicleType.toString() + " = " + costVehicle + "₮");
