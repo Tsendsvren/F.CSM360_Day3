@@ -1,21 +1,38 @@
 package com.example;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PaymentTest {
 
     @Test
-    public void testPaymentCalculation() {
-        Customer customer = new Customer("Батаа", "99999999", "bataa@mail.mn");
-        Item item = new Item("Ноутбук", 0.03, 2.0, 10.0, "Эмзэг");
-        Delivery delivery = new Delivery(DeliveryType.STANDARD, VehicleType.CAR);
-        LocationInfo location = new LocationInfo("СБД, 1-р хороо", "3", "45", "Анхаа", "88888888", "anhaa@mail.mn",
-                "Батаа", "99999999", "bataa@mail.mn");
+    public void testTotalCostCalculation() {
+        Item item = new Item("Хөргөгч", 2.5, 250, 20, "Анхаарах зүйл");
+        Delivery delivery = new Delivery(DeliveryType.EXPRESS, VehicleType.MOVING_TRUCK);
+        Customer customer = new Customer("Ганболд", "ganbold@example.com", "9999-8888");
+        LocationInfo location = new LocationInfo("Дулаан", "Хүйтэн", PaymentPayer.RECEIVER);
 
         Payment payment = new Payment(item, delivery, customer, location);
 
-        double total = payment.getTotalCost();
-        assertTrue(total > 0); // JUnit-ийн assertTrue ашиглаж байна
+        // Тооцоолол:
+        // Volume: 2.5 × 190000 = 475000
+        // Weight: 250 > 200 → жин тооцохгүй
+        // Distance: 20 × 2500 = 50000
+        // DeliveryType (EXPRESS): 15000
+        // VehicleType (MOVING_TRUCK): 50000
+        // Total = 475000 + 50000 + 15000 + 50000 = 590000
+
+        assertEquals(590000, payment.getTotalCost());
+    }
+
+    @Test
+    public void testPrintInvoice() {
+        Item item = new Item("Хөргөгч", 2.5, 250, 20, "Анхаарах зүйл");
+        Delivery delivery = new Delivery(DeliveryType.EXPRESS, VehicleType.MOVING_TRUCK);
+        Customer customer = new Customer("Ганболд", "ganbold@example.com", "9999-8888");
+        LocationInfo location = new LocationInfo("Дулаан", "Хүйтэн", PaymentPayer.RECEIVER);
+
+        Payment payment = new Payment(item, delivery, customer, location);
+        payment.printInvoice(); // Console-д хэвлэх зориулалттай
     }
 }

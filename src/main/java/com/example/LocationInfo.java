@@ -25,6 +25,10 @@ public class LocationInfo {
         this.receiverEmail = receiverEmail;
     }
 
+    public LocationInfo(String string, String string2, PaymentPayer receiver) {
+        // TODO Auto-generated constructor stub
+    }
+
     // Getters
     public String getAddress() {
         return address;
