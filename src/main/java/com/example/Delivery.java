@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Objects;
+
 public class Delivery {
     private DeliveryType deliveryType;
     private VehicleType vehicleType;
@@ -9,11 +11,14 @@ public class Delivery {
     private DeliveryStatus status;
 
     public Delivery(DeliveryType deliveryType, VehicleType vehicleType) {
-        this.deliveryType = deliveryType;
-        this.vehicleType = vehicleType;
-        this.deliveryWorkerName = vehicleType.getDeliveryWorkerName();
-        this.deliveryWorkerPhone = vehicleType.getDeliveryWorkerPhone();
-        this.deliveryWorkerEmail = vehicleType.getDeliveryWorkerEmail();
+        this.deliveryType = Objects.requireNonNull(deliveryType, "DeliveryType cannot be null");
+        this.vehicleType = Objects.requireNonNull(vehicleType, "VehicleType cannot be null");
+        this.deliveryWorkerName = Objects.requireNonNull(vehicleType.getDeliveryWorkerName(), 
+            "Worker name cannot be null");
+        this.deliveryWorkerPhone = Objects.requireNonNull(vehicleType.getDeliveryWorkerPhone(),
+            "Worker phone cannot be null");
+        this.deliveryWorkerEmail = Objects.requireNonNull(vehicleType.getDeliveryWorkerEmail(),
+            "Worker email cannot be null");
         this.status = DeliveryStatus.ORDER_PLACED;
     }
 
