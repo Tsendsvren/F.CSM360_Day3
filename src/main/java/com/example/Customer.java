@@ -1,3 +1,5 @@
+package com.example;
+
 public class Customer {
     private String fullName;
     private String phone;

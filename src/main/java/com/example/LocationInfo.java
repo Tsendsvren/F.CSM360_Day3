@@ -1,3 +1,5 @@
+package com.example;
+
 public class LocationInfo {
     private String address;
     private String entrance;

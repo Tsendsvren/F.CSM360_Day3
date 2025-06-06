@@ -1,3 +1,5 @@
+package com.example;
+
 public class Item {
     private String name;
     private double volume; // м3

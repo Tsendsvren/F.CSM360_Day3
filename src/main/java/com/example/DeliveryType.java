@@ -1,3 +1,5 @@
+package com.example;
+
 public enum DeliveryType {
     STANDARD(5000),
     EXPRESS(15000);
