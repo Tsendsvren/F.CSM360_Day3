@@ -1,3 +1,5 @@
+package com.example;
+
 public class Payment {
     static final int PRICE_PER_M3 = 190000;
     static final int PRICE_PER_KG = 2000;

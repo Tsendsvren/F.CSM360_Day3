@@ -1,3 +1,5 @@
+package com.example;
+
 public enum DeliveryStatus {
     ORDER_PLACED,
     OUT_FOR_DELIVERY,

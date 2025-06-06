@@ -1,3 +1,5 @@
+package com.example;
+
 public enum VehicleType {
     MOTORCYCLE(5000, "Намжил", "9999-1111", "namjil@example.com"),
     BICYCLE(6500, "Баатар", "9999-2222", "baatar@example.com"),

@@ -1,3 +1,5 @@
+package com.example;
+
 public class Delivery {
     private DeliveryType deliveryType;
     private VehicleType vehicleType;
