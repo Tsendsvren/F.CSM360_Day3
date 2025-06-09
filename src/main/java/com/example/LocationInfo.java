@@ -12,8 +12,25 @@ public class LocationInfo {
     private String receiverEmail;
 
     public LocationInfo(String address, String entrance, String apartment,
-            String senderName, String senderPhone, String senderEmail,
-            String receiverName, String receiverPhone, String receiverEmail) {
+                        String senderName, String senderPhone, String senderEmail,
+                        String receiverName, String receiverPhone, String receiverEmail) {
+        if (address == null || address.isEmpty()) {
+            throw new IllegalArgumentException("Address cannot be empty");
+        }
+        if (senderName == null || senderName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Sender name cannot be empty");
+        }
+        if (senderEmail == null || !senderEmail.contains("@")) {
+            throw new IllegalArgumentException("Sender email is invalid");
+        }
+        if (receiverName == null || receiverName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Receiver name cannot be empty");
+        }
+        if (receiverEmail == null || !receiverEmail.contains("@")) {
+            throw new IllegalArgumentException("Receiver email is invalid");
+        }
+        // Өөр шаардлагатай шалгалтуудыг нэмж болно
+
         this.address = address;
         this.entrance = entrance;
         this.apartment = apartment;
@@ -25,6 +42,7 @@ public class LocationInfo {
         this.receiverEmail = receiverEmail;
     }
 
+    // Хэрэглэгдээгүй конструкторыг устгаж болно эсвэл хэрэгтэй бол бүрэн хэрэгжүүлээрэй
     public LocationInfo(String string, String string2, PaymentPayer receiver) {
         // TODO Auto-generated constructor stub
     }
