@@ -14,11 +14,11 @@ public class Delivery {
         this.deliveryType = Objects.requireNonNull(deliveryType, "DeliveryType cannot be null");
         this.vehicleType = Objects.requireNonNull(vehicleType, "VehicleType cannot be null");
         this.deliveryWorkerName = Objects.requireNonNull(vehicleType.getDeliveryWorkerName(),
-                "Ажилтны нэр хоосон байж болохгүй");
+                "Worker name cannot be null");
         this.deliveryWorkerPhone = Objects.requireNonNull(vehicleType.getDeliveryWorkerPhone(),
-                "Ажилтны утас хоосон байж болохгүй");
+                "Worker phone cannot be null");
         this.deliveryWorkerEmail = Objects.requireNonNull(vehicleType.getDeliveryWorkerEmail(),
-                "Ажилтны имэйл хоосон байж болохгүй");
+                "Worker email cannot be null");
         this.status = DeliveryStatus.ORDER_PLACED;
     }
 

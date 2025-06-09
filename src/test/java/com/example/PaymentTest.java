@@ -12,11 +12,11 @@ public class PaymentTest {
         Customer customer = new Customer("Ганболд", "9999-8888", "ganbold@example.com");
         LocationInfo location = new LocationInfo(
                 "Улаанбаатар, Сүхбаатар дүүрэг",
-                "",
+                "Орц 1",
                 "Давхар 3, 301 тоот",
                 "Батбаяр",
-                "9955ggii",
-                "batbayarexample.com",
+                "99009900",
+                "batbayar@example.com",
                 "Наран",
                 "99008877",
                 "naran@example.com");

@@ -15,19 +15,19 @@ public class LocationInfo {
             String senderName, String senderPhone, String senderEmail,
             String receiverName, String receiverPhone, String receiverEmail) {
         if (address == null || address.isEmpty()) {
-            throw new IllegalArgumentException("Хаяг хоосон байж болохгүй");
+            throw new IllegalArgumentException("Address cannot be empty");
         }
         if (senderName == null || senderName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Илгээгчийн нэр хоосон байж болохгүй");
+            throw new IllegalArgumentException("Sender name cannot be empty");
         }
         if (senderEmail == null || !senderEmail.contains("@")) {
-            throw new IllegalArgumentException("Имэйл хаяг нь зөв биш байна");
+            throw new IllegalArgumentException("Sender email is invalid");
         }
         if (receiverName == null || receiverName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Хүлээн авагчийн нэр хоосон байж болохгүй");
+            throw new IllegalArgumentException("Receiver name cannot be empty");
         }
         if (receiverEmail == null || !receiverEmail.contains("@")) {
-            throw new IllegalArgumentException("Хүлээн авагчийн имэйл хаяг нь зөв биш байна");
+            throw new IllegalArgumentException("Receiver email is invalid");
         }
         // Өөр шаардлагатай шалгалтуудыг нэмж болно
 
