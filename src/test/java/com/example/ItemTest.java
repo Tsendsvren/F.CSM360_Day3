@@ -14,7 +14,7 @@ public class ItemTest {
         assertEquals(0.03, item.getVolume(), 0.001);
         assertEquals(2.0, item.getWeight(), 0.001);
         assertEquals(5.0, item.getDistance(), 0.001);
-        assertEquals("Хагарах аюултай", item.getWarning());
+        assertEquals("Эмзэг", item.getWarning());
     }
 
     @Test

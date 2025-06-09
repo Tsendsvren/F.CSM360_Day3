@@ -9,16 +9,16 @@ public class Item {
 
     public Item(String name, double volume, double weight, double distance, String warning) {
         if (name == null || name.trim().isEmpty()) {
-            throw new IllegalArgumentException("Бүтээгдэхүүний нэр хоосон байж болохгүй");
+            throw new IllegalArgumentException("Name cannot be null or empty");
         }
         if (volume < 0) {
-            throw new IllegalArgumentException("Бүтээгдэхүүний хэмжээ 0-ээс бага байж болохгүй");
+            throw new IllegalArgumentException("Volume cannot be negative");
         }
         if (weight < 0) {
-            throw new IllegalArgumentException("Бүтээгдэхүүний жин 0-ээс бага байж болохгүй");
+            throw new IllegalArgumentException("Weight cannot be negative");
         }
         if (distance < 0) {
-            throw new IllegalArgumentException("Бүтээгдэхүүний зай 0-ээс бага байж болохгүй");
+            throw new IllegalArgumentException("Distance cannot be negative");
         }
         if (warning == null) {
             warning = "";
