@@ -7,22 +7,22 @@ public class ItemTest {
 
     @Test
     public void testItemInitialization() {
-        Item item = new Item("Ноутбук", 0.03, 2.0, 5.0, "Эмзэг");
+        Item item = new Item("Компьютер", 0.03, 2.0, 5.0, "Эмзэг");
 
         assertNotNull(item);
-        assertEquals("Ноутбук", item.getName());
+        assertEquals("Компьютер", item.getName());
         assertEquals(0.03, item.getVolume(), 0.001);
         assertEquals(2.0, item.getWeight(), 0.001);
         assertEquals(5.0, item.getDistance(), 0.001);
-        assertEquals("Эмзэг", item.getWarning());
+        assertEquals("Хагарах аюултай", item.getWarning());
     }
 
     @Test
-public void testItemConstructorThrowsExceptionForInvalidInputs() {
-    assertThrows(IllegalArgumentException.class, () -> new Item(null, 0.03, 2.0, 5.0, "Warning"));
-    assertThrows(IllegalArgumentException.class, () -> new Item("", 0.03, 2.0, 5.0, "Warning"));
-    assertThrows(IllegalArgumentException.class, () -> new Item("Ноутбук", -0.01, 2.0, 5.0, "Warning"));
-    assertThrows(IllegalArgumentException.class, () -> new Item("Ноутбук", 0.03, -2.0, 5.0, "Warning"));
-    assertThrows(IllegalArgumentException.class, () -> new Item("Ноутбук", 0.03, 2.0, -5.0, "Warning"));
-}
+    public void testItemConstructorThrowsExceptionForInvalidInputs() {
+        assertThrows(IllegalArgumentException.class, () -> new Item(null, 0.03, 2.0, 5.0, "Warning"));
+        assertThrows(IllegalArgumentException.class, () -> new Item("", 0.03, 2.0, 5.0, "Warning"));
+        assertThrows(IllegalArgumentException.class, () -> new Item("Компьютер", -0.01, 2.0, 5.0, "Warning"));
+        assertThrows(IllegalArgumentException.class, () -> new Item("Компьютер", 0.03, -2.0, 5.0, "Warning"));
+        assertThrows(IllegalArgumentException.class, () -> new Item("Компьютер", 0.03, 2.0, -5.0, "Warning"));
+    }
 }

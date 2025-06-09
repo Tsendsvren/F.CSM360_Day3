@@ -12,22 +12,22 @@ public class LocationInfo {
     private String receiverEmail;
 
     public LocationInfo(String address, String entrance, String apartment,
-                        String senderName, String senderPhone, String senderEmail,
-                        String receiverName, String receiverPhone, String receiverEmail) {
+            String senderName, String senderPhone, String senderEmail,
+            String receiverName, String receiverPhone, String receiverEmail) {
         if (address == null || address.isEmpty()) {
-            throw new IllegalArgumentException("Address cannot be empty");
+            throw new IllegalArgumentException("Хаяг хоосон байж болохгүй");
         }
         if (senderName == null || senderName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Sender name cannot be empty");
+            throw new IllegalArgumentException("Илгээгчийн нэр хоосон байж болохгүй");
         }
         if (senderEmail == null || !senderEmail.contains("@")) {
-            throw new IllegalArgumentException("Sender email is invalid");
+            throw new IllegalArgumentException("Имэйл хаяг нь зөв биш байна");
         }
         if (receiverName == null || receiverName.trim().isEmpty()) {
-            throw new IllegalArgumentException("Receiver name cannot be empty");
+            throw new IllegalArgumentException("Хүлээн авагчийн нэр хоосон байж болохгүй");
         }
         if (receiverEmail == null || !receiverEmail.contains("@")) {
-            throw new IllegalArgumentException("Receiver email is invalid");
+            throw new IllegalArgumentException("Хүлээн авагчийн имэйл хаяг нь зөв биш байна");
         }
         // Өөр шаардлагатай шалгалтуудыг нэмж болно
 
@@ -42,7 +42,8 @@ public class LocationInfo {
         this.receiverEmail = receiverEmail;
     }
 
-    // Хэрэглэгдээгүй конструкторыг устгаж болно эсвэл хэрэгтэй бол бүрэн хэрэгжүүлээрэй
+    // Хэрэглэгдээгүй конструкторыг устгаж болно эсвэл хэрэгтэй бол бүрэн
+    // хэрэгжүүлээрэй
     public LocationInfo(String string, String string2, PaymentPayer receiver) {
         // TODO Auto-generated constructor stub
     }
