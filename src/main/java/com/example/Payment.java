@@ -1,5 +1,8 @@
 package com.example;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Payment {
     static final int PRICE_PER_M3 = 190000;
     static final int PRICE_PER_KG = 2000;
@@ -9,6 +12,9 @@ public class Payment {
     private double volume;
     private double distance;
     private DeliveryType deliveryType;
+
+    private static final Logger logger = LogManager.getLogger(Payment.class);
+
     private VehicleType vehicleType;
     private Item item;
     private Delivery delivery;
@@ -24,6 +30,9 @@ public class Payment {
     private PaymentPayer paymentPayer;
 
     public Payment(Item item, Delivery delivery, Customer customer, LocationInfo location, PaymentPayer paymentPayer) {
+        logger.debug("Payment class-д обьект үүсгэж байна: item={}, deliveryType={}, customer={}",
+                item.getName(), delivery.getDeliveryType(), customer.getFullName());
+
         this.item = item;
         this.delivery = delivery;
         this.customer = customer;
@@ -39,9 +48,11 @@ public class Payment {
         if (weight > 200) {
             costVolume = (int) (volume * PRICE_PER_M3);
             costWeight = 0;
+            logger.info("Жин > 200 кг, эзэлхүүнээр тооцож байна: {} м3 * {} = {}", volume, PRICE_PER_M3, costVolume);
         } else {
             costVolume = 0;
             costWeight = (int) (weight * PRICE_PER_KG);
+            logger.info("Жин <= 200 кг, жингээр тооцож байна: {} кг * {} = {}", weight, PRICE_PER_KG, costWeight);
         }
 
         costDistance = (int) (distance * PRICE_PER_KM);
@@ -49,51 +60,55 @@ public class Payment {
         costVehicle = vehicleType.getPrice();
 
         totalCost = costVolume + costWeight + costDistance + costDeliveryType + costVehicle;
+
+        logger.info("Төлбөрийн нийт дүн тооцогдлоо: {}", totalCost);
     }
 
     public void printInvoice() {
-        System.out.println("\n========== Хүргэлтийн Баримт ==========");
-        System.out.println(" Захиалагч: " + customer.getFullName());
-        System.out.println("   Утас: " + customer.getPhone());
-        System.out.println("   Имэйл: " + customer.getEmail());
+        logger.info("Нэхэмжлэх хэвлэж байна...");
 
-        System.out.println("\n Хаяг:");
-        System.out.println("   Хүргэлтийн хаяг: " + location.getAddress());
-        System.out.println("   Орц: " + location.getEntrance());
-        System.out.println("   Орцны дугаар: " + location.getApartment());
+        logger.info("\n========== Хүргэлтийн Баримт ==========");
+        logger.info(" Захиалагч: {}", customer.getFullName());
+        logger.info("   Утас: {}", customer.getPhone());
+        logger.info("   Имэйл: {}", customer.getEmail());
 
-        System.out.println("\n Илгээгч:");
-        System.out.println("   Нэр: " + location.getSenderName());
-        System.out.println("   Утас: " + location.getSenderPhone());
-        System.out.println("   Имэйл: " + location.getSenderEmail());
+        logger.info("\n Хаяг:");
+        logger.info("   Хүргэлтийн хаяг: {}", location.getAddress());
+        logger.info("   Орц: {}", location.getEntrance());
+        logger.info("   Орцны дугаар: {}", location.getApartment());
 
-        System.out.println("\nХүлээн авагч:");
-        System.out.println("   Нэр: " + location.getReceiverName());
-        System.out.println("   Утас: " + location.getReceiverPhone());
-        System.out.println("   Имэйл: " + location.getReceiverEmail());
+        logger.info("\n Илгээгч:");
+        logger.info("   Нэр: {}", location.getSenderName());
+        logger.info("   Утас: {}", location.getSenderPhone());
+        logger.info("   Имэйл: {}", location.getSenderEmail());
 
-        System.out.println("\n Бараа:");
-        System.out.println("   Нэр: " + item.getName());
-        System.out.println("   Анхааруулга: " + (item.getWarning().isEmpty() ? "Байхгүй" : item.getWarning()));
-        System.out.println("   Хэмжээ: " + volume + " м3 × " + PRICE_PER_M3 + "₮ = " + costVolume + "₮");
-        System.out.println("   Жин: " + weight + " кг × " + PRICE_PER_KG + "₮ = " + costWeight + "₮");
-        System.out.println("   Зай: " + distance + " км × " + PRICE_PER_KM + "₮ = " + costDistance + "₮");
+        logger.info("\nХүлээн авагч:");
+        logger.info("   Нэр: {}", location.getReceiverName());
+        logger.info("   Утас: {}", location.getReceiverPhone());
+        logger.info("   Имэйл: {}", location.getReceiverEmail());
 
-        System.out.println("\nХүргэлтийн мэдээлэл:");
-        System.out.println("   Хүргэлтийн төрөл: " + deliveryType.toString() + " = " + costDeliveryType + "₮");
-        System.out.println("   Тээврийн хэрэгсэл: " + vehicleType.toString() + " = " + costVehicle + "₮");
+        logger.info("\n Бараа:");
+        logger.info("   Нэр: {}", item.getName());
+        logger.info("   Анхааруулга: {}", item.getWarning().isEmpty() ? "Байхгүй" : item.getWarning());
+        logger.info("   Хэмжээ: {} м3 × {}₮ = {}₮", volume, PRICE_PER_M3, costVolume);
+        logger.info("   Жин: {} кг × {}₮ = {}₮", weight, PRICE_PER_KG, costWeight);
+        logger.info("   Зай: {} км × {}₮ = {}₮", distance, PRICE_PER_KM, costDistance);
 
-        System.out.println("\n Хүргэлтийн ажилтан:");
-        System.out.println("   Нэр: " + delivery.getDeliveryWorkerName());
-        System.out.println("   Утас: " + delivery.getDeliveryWorkerPhone());
-        System.out.println("   Имэйл: " + delivery.getDeliveryWorkerEmail());
+        logger.info("\nХүргэлтийн мэдээлэл:");
+        logger.info("   Хүргэлтийн төрөл: {} = {}₮", deliveryType.toString(), costDeliveryType);
+        logger.info("   Тээврийн хэрэгсэл: {} = {}₮", vehicleType.toString(), costVehicle);
 
-        System.out.println("\nТөлбөр:");
-        System.out.println("   Нийт төлбөр: " + totalCost + "₮");
-        System.out.println("   Төлбөр төлөгч: " + (paymentPayer != null ? paymentPayer.toString() : "Тодорхойгүй"));
+        logger.info("\n Хүргэлтийн ажилтан:");
+        logger.info("   Нэр: {}", delivery.getDeliveryWorkerName());
+        logger.info("   Утас: {}", delivery.getDeliveryWorkerPhone());
+        logger.info("   Имэйл: {}", delivery.getDeliveryWorkerEmail());
 
-        System.out.println(" Хүргэлтийн төлөв: " + delivery.getStatus());
-        System.out.println("========================================");
+        logger.info("\nТөлбөр:");
+        logger.info("   Нийт төлбөр: {}₮", totalCost);
+        logger.info("   Төлбөр төлөгч: {}", paymentPayer != null ? paymentPayer.toString() : "Тодорхойгүй");
+
+        logger.info(" Хүргэлтийн төлөв: {}", delivery.getStatus());
+        logger.info("========================================");
     }
 
     public int getTotalCost() {
